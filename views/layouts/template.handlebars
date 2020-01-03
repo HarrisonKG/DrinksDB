@@ -1,0 +1,32 @@
+<!-- navbar styling sourced from w3schools.com tutorial -->
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Drinks DB</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	{{{head}}}
+</head>
+<body>
+	<div class="topnav">
+		<a class="active" href="/">Home</a>
+		<div class="dropdown">
+			<button class="dropbtn">Show all / Add new
+			<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="/addFlavor">Flavor</a>
+				<a href="/addCountry">Country</a>
+				<a href="/addMixer">Mixer</a>
+				<a href="/addSpirit">Spirit</a>
+				<a href="/addDrink">Drink</a>
+			</div>
+		</div>
+		<a href="/countries">Browse by country</a>
+		<a href="/spirits">Browse by spirit</a>
+	</div>
+	{{{body}}}
+</body>
+</html>

@@ -1,0 +1,43 @@
+</br>
+
+<!-- submit as post form -->
+<form action="/countries" method="post" id="filterCountry">
+	<h2>Browse drinks by country:</h2>
+
+<!-- drop down menu of flavors -->
+	<select name="country_list">
+		<option>{{reqCountry}}</option>
+		{{#each countries}}
+			<option>{{this.country_name}}</option>
+		{{/each}}
+	</select>
+	<input type="submit" value="Look up drinks">
+</form>
+</br></br></br>
+
+
+<!-- display drink results -->
+{{#if reqCountry}}
+<h3>Mixed drinks from {{reqCountry}}:</h3>
+{{/if}}
+
+{{#if country_drinks}}
+{{/if}}
+{{#each country_drinks}}
+	<option><a href="/drink/{{this.drink_id}}">{{this.drink_name}}</a></option>
+{{/each}}
+</br></br></br>
+
+
+{{#if country_spirits}}
+	<h5>Or check out these spirits:</h5>
+{{/if}}
+{{#each country_spirits}}
+	<option><a href="/spirit/{{this.spirit_id}}">{{this.spirit_name}}</a></option>
+{{/each}}
+
+<!--
+<form>
+	<fieldset><legend>Create a new drink association</legend>
+
+-->

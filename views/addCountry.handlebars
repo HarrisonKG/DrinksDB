@@ -1,0 +1,17 @@
+</br>
+
+<form action="/addCountry" method="post" id="addCountry">
+	<h2>Add a new country to the list:</h2></br>
+	<input type="text" name="newCountry" form="addCountry">
+	<input type="submit" value = "Add">
+</form>
+
+</br>
+{{message}}
+</br>
+
+<ul>
+{{#each countries}}
+	<li>{{this.country_name}}</li>
+{{/each}}
+</ul>

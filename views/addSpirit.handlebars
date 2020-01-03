@@ -1,0 +1,18 @@
+</br>
+
+<form action="/addSpirit" method="post" id="addSpirit">
+	<h2>Add a new spirit to the list:</h2></br>
+	<input type="text" name="newSpirit" form="addSpirit">
+	<input type="submit" value = "Add">
+</form>
+
+</br>
+{{message}}
+</br>
+
+<ul>
+{{#each spirits}}
+	<li><a href="/spirit/{{this.spirit_id}}">{{this.spirit_name}}</a></option></li>
+{{/each}}
+</ul>
+

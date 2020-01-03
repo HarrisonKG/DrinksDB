@@ -1,0 +1,65 @@
+
+</br>
+<h2>Drinks DB </h2></br></br>
+
+
+<form action="/flavor" method="post" id="filterFlavor">
+	<span>Choose a flavor to filter mixed drinks:</span></br>
+
+	<!-- drop down menu of flavors -->
+	<select name="flavor_list" form="filterFlavor">
+		<option>all<option>
+		{{#each flavors}}
+		<option>{{this.flavor_name}}</option>
+		{{/each}}
+	</select>
+	<input type="submit" value="Look up drinks">
+</form>
+</br></br>
+
+
+<!-- display drink results -->
+{{#if reqFlavor}}
+	{{reqFlavor}} drinks: 
+	</br></br>
+{{/if}}
+{{#if results}}
+	{{#each results}}
+	<option><a href="/drink/{{this.drink_id}}">{{this.drink_name}}</a></option>
+	{{/each}}
+	</br></br>
+{{/if}}
+</br>
+
+
+<form action="/countries" method="post" id="filterCountry">
+	<span>or pick a country to see what types of alcohol and which
+		mixed drinks were invented there:</span></br>
+
+<!-- drop down menu of countries with drinks associated -->
+	<select name="country_list">
+		{{#each countries}}
+			<option>{{this.country_name}}</option>
+		{{/each}}
+	</select>
+	<input type="submit" value="Look up drinks">
+</form>
+</br></br></br>
+
+
+
+<form action="/spirits" method="post" id="filterSpirit">
+	<span>or browse drinks by spirit:</span></br>
+
+<!-- drop down menu of flavors -->
+	<select name="spirit_list">
+		{{#each spirits}}
+			<option>{{this.spirit_name}}</option>
+		{{/each}}
+	</select>
+	<input type="submit" value="Look up drinks">
+</form>
+</br></br></br>
+
+
+

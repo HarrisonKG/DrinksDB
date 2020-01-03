@@ -1,0 +1,17 @@
+</br>
+
+<form action="/addMixer" method="post" id="addMixer">
+	<h2>Add a new mixer to the list:</h2></br>
+	<input type="text" name="newMixer" form="addMixer">
+	<input type="submit" value = "Add">
+</form>
+
+</br>
+{{message}}
+</br>
+
+<ul>
+{{#each mixers}}
+	<li>{{this.mixer_name}}</li>
+{{/each}}
+</ul>

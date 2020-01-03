@@ -1,0 +1,52 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+{{message}}
+
+</br>
+<h2>{{drink}}</h2>
+
+<ul>
+	{{#each spirits}}
+		<li>{{this.spirit_quantity}} {{this.spirit_measure}} {{this.spirit_name}}</li>
+	{{/each}}
+
+	{{#each mixers}}
+		<li>{{this.mixer_quantity}} {{this.mixer_measure}} {{this.mixer_name}}</li>
+	{{/each}}
+</ul>
+</br>
+
+{{#if directions}}
+	<h3>Directions: </h3>
+{{directions}}
+{{/if}}
+</br></br></br>
+
+{{#if flavor}}
+<span>Tagged: {{flavor}}</span>
+{{/if}}
+</br></br>
+
+
+<p>Origin: 
+{{#if inventor}}
+	{{inventor}} -- 
+{{/if}}
+
+{{#if country}}
+	 {{country}}
+{{else}}
+	unknown country
+{{/if}}
+</p>
+</br>
+
+<form action="/editDrink/{{drinkID}}" method="get" id="editDrink">
+	<input type="submit" value = "Edit">
+</form>
+
+<form action="/deleteDrink/{{drinkID}}" method="post" id="deleteDrink">
+	<input type="submit" value = "Delete">
+</form>
+

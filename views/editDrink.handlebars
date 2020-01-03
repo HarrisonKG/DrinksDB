@@ -1,0 +1,92 @@
+<head>
+	<script src="/js/editDrink.js"></script>
+	<script src="/js/getIngredients.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+</br>
+	<h2>Edit {{drink}} recipe</h1></br>
+	<fieldset>
+		<legend>Ingredients</legend></br>
+		<table>
+		    <thead> 
+		        <th>Amount</th> 
+		        <th>Measure</th> 
+		        <th>Ingredient</th>
+		    </thead> 
+		    <tbody> 
+		        {{#each spirits}} 
+		        <tr> 
+		            <td>{{spirit_quantity}}</td> 
+		            <td>{{spirit_measure}}</td> 
+		            <td>{{spirit_name}}</td> 
+		            <td><button onclick="deleteSpiritIngredient({{../drinkID}}, {{spirit_id}})">Delete</button></td>
+		        </tr> 
+		        {{/each}}
+		        {{#each mixers}} 
+		        <tr> 
+		            <td>{{mixer_quantity}}</td> 
+		            <td>{{mixer_measure}}</td> 
+		            <td>{{mixer_name}}</td> 
+		            <td><button onclick="deleteMixerIngredient({{../drinkID}}, {{mixer_id}})">Delete</button></td>
+		        </tr> 
+		        {{/each}} 
+		</tbody> 
+		</table>
+	</fieldset>
+	</br></br>
+
+	<input type="button" id="addSpirit" value="Add new spirit" form="editDrink">
+	<input type="button" id="addMixer" value="Add new mixer" form="editDrink">
+	</br></br>
+
+	<form action="/editDrink" method="post" id="editDrink">
+		<span id="insertPoint"></span></br></br></br>		
+			
+		<fieldset>
+			<legend>Drink data</legend></br>
+
+			<label>Drink name: <input type="text" name="drinkName" form="editDrink" value="{{drink}}">
+			</label></br></br>
+			
+			<label>Inventor: <input type="text" name="drinkInventor" form="editDrink" value="{{inventor}}">
+			</label></br></br>
+			
+			<div class="textField">
+				<label>Recipe directions: </label>
+				<textarea rows="4" cols="80" name="drinkDirections" form="editDrink">{{directions}}</textarea>
+			</div>
+			</br></br>
+
+			<input type="hidden" id="drinkID" name="drinkID" value="{{drinkID}}">
+			
+			<label>Flavor: </label>
+			<select name="flavor_list" form="editDrink">
+				{{#if flavor}}
+				<option selected>{{flavor}}</option>
+				{{/if}}
+				<option>null<option>
+				{{#each flavors}}
+					<option>{{this.flavor_name}}</option>
+				{{/each}}
+			</select></br></br>
+			
+			<label>Country: </label>
+			<select name="country_list" form="editDrink">
+				{{#if country}}
+				<option selected>{{country}}</option>
+				{{/if}}
+				<option>null<option>
+				{{#each countries}}
+					<option>{{this.country_name}}</option>
+				{{/each}}
+			</select>
+			</br></br></br>
+			
+			<input type="submit" value="Update drink" form="editDrink">
+		
+		</fieldset>
+	</form>
+
+</body>
+</html>

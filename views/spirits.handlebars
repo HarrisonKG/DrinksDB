@@ -1,0 +1,72 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+</br>
+{{errorMessage}}
+
+<!-- look up drinks by spirit name -->
+<form action="/spirits" method="post" id="filterSpirit">
+	<h2>Browse drinks by spirit:</h2>
+
+<!-- drop down menu of spirits -->
+	<select name="spirit_list">
+		<option>{{spiritName}}</option>
+		{{#each spirits}}
+			<option>{{this.spirit_name}}</option>
+		{{/each}}
+	</select>
+	<input type="submit" value="Look up drinks">
+</form>
+</br></br></br>
+
+
+<!-- if arrived here through link or post redirect -->
+{{#if spiritName}}
+
+<!-- display drink results -->
+{{#if spirit_drinks}}
+	Drinks with {{spiritName}}:
+	</br></br>
+	{{#each spirit_drinks}}
+		<option><a href="/drink/{{this.drink_id}}">{{this.drink_name}}</a></option>
+	{{/each}}
+</br></br></br>
+{{else}}
+<p>No drinks associated with {{spiritName}} yet</p>
+<a href="addDrink">Add a new drink</a>
+</br></br></br></br>
+{{/if}}
+
+
+{{#if proof}}
+Average proof: {{proof}}
+{{/if}}
+</br></br>
+
+
+{{#if country}}
+	Country: {{country}}
+{{/if}}
+</br></br></br></br></br>
+
+
+<!-- set new country association -->
+<form action="/setNewSpiritCountry" method="post" id="filterCountry">
+	<fieldset><legend>Update {{spiritName}}'s country association</legend></br>
+<!-- drop down menu of flavors -->
+	<select name="country_list">
+		<option selected>{{country}}<option>
+		<option>null</option>
+		{{#each countries}}
+			<option>{{this.country_name}}</option>
+		{{/each}}
+	</select>
+	<input type="hidden" name = "spiritID" value="{{spiritID}}">
+	<input type="hidden" name = "spiritName" value="{{spiritName}}">
+	<input type="submit" value="Update country">
+</form>
+</br></br>
+</fieldset>
+</form>
+{{/if}}

@@ -1,0 +1,69 @@
+<head>
+	<script src="js/getIngredients.js"></script>
+</head>
+
+<body>
+	{{errorMessage}}
+	</br>
+	<h2>Add a new drink to the list:</h2>
+
+	<form action="/addDrink" method="post" id="addDrink">
+	<fieldset>
+		<label>Drink name: <input type="text" name="drinkName" placeholder="Required" form="addDrink"></label></br></br>
+		
+		<label>Inventor: <input type="text" name="drinkInventor" form="addDrink"></label></br></br>
+		
+		<div class="textField">
+			<label>Recipe directions: </label>
+			<textarea rows="4" cols="80" name="drinkDirections" form="addDrink"></textarea>
+		</div></br></br>
+		
+		<label>Flavor: </label>
+		<select name="flavor_list" form="addDrink">
+			<option>null<option>
+			{{#each flavors}}
+				<option>{{this.flavor_name}}</option>
+			{{/each}}
+		</select>
+		</br></br>
+
+		<label>Country: </label>
+		<select name="country_list" form="addDrink">
+			<option>null<option>
+			{{#each countries}}
+				<option>{{this.country_name}}</option>
+			{{/each}}
+		</select></br>
+
+		</br>
+		<span id="insertPoint"></span>
+		</br>
+
+		<input type="button" id="addSpirit" value ="Add spirit" form="addDrink">
+		<input type="button" id="addMixer" value ="Add mixer" form="addDrink">
+
+		</br></br></br>
+		<input type="submit" value = "Add new drink">
+	</fieldset>
+</form>
+
+	
+
+</br>
+{{message}}
+</br>
+
+</br>
+
+{{#if drinks}}
+<h3>Currently in DrinksDB:</h3>
+<ul>
+{{#each drinks}}
+	<li><a href="/drink/{{this.drink_id}}">{{this.drink_name}}</a></li>
+{{/each}}
+</ul>
+{{/if}}
+
+</br></br></br>
+
+</body>

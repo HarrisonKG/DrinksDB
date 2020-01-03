@@ -1,0 +1,17 @@
+{
+  "name": "drinksDB",
+  "version": "1.0.0",
+  "description": "mixed drink database",
+  "main": "app.js",
+  "scripts": {},
+  "author": "Kristen Harrison",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.15.6",
+    "mysql": "^2.8.0"
+  }
+}
